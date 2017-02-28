@@ -1,0 +1,27 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFF"
+    android:orientation="vertical" >
+<com.palmintelligence.administrator.nethardnewsv001.ui.ViewPagerIndicate
+    android:id="@+id/indicate"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:scrollbars="none" >
+</com.palmintelligence.administrator.nethardnewsv001.ui.ViewPagerIndicate>
+
+
+
+   <View
+       android:layout_width="match_parent"
+       android:layout_height="1dp"
+       android:layout_marginTop="2dp"
+       android:background="#D5D5D5" />
+
+   <android.support.v4.view.ViewPager
+       android:id="@+id/viewPager"
+       android:layout_width="match_parent"
+       android:layout_height="0dp"
+       android:layout_weight="1" />
+
+</LinearLayout>
