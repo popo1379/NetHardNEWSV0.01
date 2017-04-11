@@ -72,7 +72,7 @@ public class GamesListAdapter extends BaseRecyclerViewAdapter<GamesBean> {
         @Override
         protected void setData(@NonNull final GamesBean data) {
             super.setData(data);
-            tvTime.setText(data.getAuthorName());
+            tvTime.setText(data.getDate());
             tvTitle.setText(data.getTitle());
             tvUrl.setText(data.getUrl());
             GlideUtils.glide(data.getThumbnailPicS(),image,UIcollector.getContext());

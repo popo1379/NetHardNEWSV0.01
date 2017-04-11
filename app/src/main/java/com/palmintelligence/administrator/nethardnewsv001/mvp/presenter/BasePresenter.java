@@ -16,12 +16,4 @@ public  class BasePresenter<T> {
         mView = null;
     }
 
-
-
-
-
-
-
-
-
 }

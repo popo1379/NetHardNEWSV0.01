@@ -56,6 +56,7 @@ public abstract class BaseFragment extends Fragment {
 
     @Override
     public void setUserVisibleHint(boolean isVisibleToUser) {
+
         super.setUserVisibleHint(isVisibleToUser);
 
         if (getUserVisibleHint()) {
@@ -82,7 +83,6 @@ public abstract class BaseFragment extends Fragment {
     protected abstract View initView();
 
     protected abstract void initData();
-
 
     @Override
     public void onDestroyView() {

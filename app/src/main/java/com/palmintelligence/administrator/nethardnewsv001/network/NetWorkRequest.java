@@ -17,10 +17,6 @@ import rx.schedulers.Schedulers;
  */
 public class NetWorkRequest {
 
-
-
-
-
     public static void gamesList(String type,Subscriber<JUHEBean> subscriber) {
         Rxjavacollector.unsubscribe();
         Rxjavacollector.subscription = NetWork.getJUHEAPI().getGamesList(type,Api.NEWS_KEY)

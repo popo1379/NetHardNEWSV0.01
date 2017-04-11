@@ -57,7 +57,7 @@ public class EconomicFragment extends BaseFragment implements SwipeRefreshLayout
         LinkedList<GamesBean> list = new LinkedList<>();
 
         gamesListAdapter = new GamesListAdapter(list);
-
+        gamesListAdapter.setOnItemClickListener(this);
         gamesListPresenter= new GamesListPresenter(this);
 
         srfLayout.setOnRefreshListener(this);
@@ -136,6 +136,7 @@ public class EconomicFragment extends BaseFragment implements SwipeRefreshLayout
 
     @Override
     public void onItemClick(View view, int position, GamesBean info) {
+        gamesListPresenter.onClick(info);
         Log.i("EconomicFragment","onItemClick被调用了");
     }
 

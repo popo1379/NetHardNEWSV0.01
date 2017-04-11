@@ -50,7 +50,7 @@ public class WarsFragment extends BaseFragment implements SwipeRefreshLayout.OnR
         LinkedList<GamesBean> list = new LinkedList<>();
 
         gamesListAdapter = new GamesListAdapter(list);
-
+        gamesListAdapter.setOnItemClickListener(this);
         gamesListPresenter= new GamesListPresenter(this);
 
         srfLayout.setOnRefreshListener(this);
@@ -130,9 +130,8 @@ public class WarsFragment extends BaseFragment implements SwipeRefreshLayout.OnR
 
     @Override
     public void onItemClick(View view, int position, GamesBean info) {
-
+        gamesListPresenter.onClick(info);
         Log.i("WarsFragment","onItemClick被调用了");
     }
-
 
 }

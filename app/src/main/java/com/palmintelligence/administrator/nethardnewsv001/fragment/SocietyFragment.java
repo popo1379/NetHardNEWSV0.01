@@ -51,7 +51,7 @@ public class SocietyFragment extends BaseFragment implements SwipeRefreshLayout.
         LinkedList<GamesBean> list = new LinkedList<>();
 
         gamesListAdapter = new GamesListAdapter(list);
-
+        gamesListAdapter.setOnItemClickListener(this);
         gamesListPresenter= new GamesListPresenter(this);
 
         srfLayout.setOnRefreshListener(this);
@@ -70,7 +70,6 @@ public class SocietyFragment extends BaseFragment implements SwipeRefreshLayout.
         });
         isLoad = true;
     }
-
 
     @Override
     public void setData(List<GamesBean> datas) {
@@ -133,6 +132,7 @@ public class SocietyFragment extends BaseFragment implements SwipeRefreshLayout.
     public void onItemClick(View view, int position, GamesBean info) {
 
         Log.i("SocietyFragment","onItemClick被调用了");
+
     }
 
 }

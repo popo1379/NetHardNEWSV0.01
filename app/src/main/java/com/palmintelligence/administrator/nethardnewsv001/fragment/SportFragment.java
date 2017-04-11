@@ -51,7 +51,7 @@ public class SportFragment extends BaseFragment implements SwipeRefreshLayout.On
         LinkedList<GamesBean> list = new LinkedList<>();
 
         gamesListAdapter = new GamesListAdapter(list);
-
+        gamesListAdapter.setOnItemClickListener(this);
         gamesListPresenter= new GamesListPresenter(this);
 
         srfLayout.setOnRefreshListener(this);
@@ -131,9 +131,8 @@ public class SportFragment extends BaseFragment implements SwipeRefreshLayout.On
 
     @Override
     public void onItemClick(View view, int position, GamesBean info) {
-
+        gamesListPresenter.onClick(info);
         Log.i("SportFragment","onItemClick被调用了");
     }
-
 
 }

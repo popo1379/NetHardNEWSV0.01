@@ -46,14 +46,11 @@ public class MainActivity extends BaseActivity {
   // replaceFragment(new NewsFragment());
 
         InitViewPager();
-
     }
 
     protected int getLayoutId(){
         return R.layout.activity_main;
-
     }
-
 
     private void InitViewPager(){
         fragmentList = new ArrayList<Fragment>();
@@ -99,7 +96,6 @@ public class MainActivity extends BaseActivity {
             });
     }
 
-
   //初始化顶部滑动
     private void initViewPagerIndicate() {
 
@@ -117,9 +113,7 @@ public class MainActivity extends BaseActivity {
         tabPageIndicator.setOk();
     }
 
-
     void replaceFragment(Fragment fragment) {
         getSupportFragmentManager().beginTransaction().replace(R.id.viewPager, fragment).commit();
     }
-
 }

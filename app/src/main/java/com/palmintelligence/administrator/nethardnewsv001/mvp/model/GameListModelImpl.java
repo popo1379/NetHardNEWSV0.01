@@ -29,7 +29,6 @@ public class GameListModelImpl implements BaseModel.GamesListModel{
             @Override
             public void onError(Throwable e) {
                 gameData.error();
-
             }
 
             @SuppressWarnings("unchecked")

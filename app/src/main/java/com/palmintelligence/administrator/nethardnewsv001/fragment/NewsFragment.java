@@ -57,15 +57,14 @@ public class NewsFragment extends BaseFragment implements SwipeRefreshLayout.OnR
             srfLayout = (SwipeRefreshLayout) view.findViewById(R.id.srf_layout);
 
             isPrepared = true;
-
              bannerViewPager = (BannerViewPager)view.findViewById(R.id.banner);
             iv1 = (ImageView) LayoutInflater.from(UIcollector.getActivity()).inflate(R.layout.banner_item,bannerViewPager,false);
             iv2 = (ImageView) LayoutInflater.from(UIcollector.getActivity()).inflate(R.layout.banner_item,bannerViewPager,false);
             iv3 = (ImageView) LayoutInflater.from(UIcollector.getActivity()).inflate(R.layout.banner_item,bannerViewPager,false);
             iv4 = (ImageView) LayoutInflater.from(UIcollector.getActivity()).inflate(R.layout.banner_item,bannerViewPager,false);
             iv5 = (ImageView) LayoutInflater.from(UIcollector.getActivity()).inflate(R.layout.banner_item,bannerViewPager,false);
-
         }
+
         return view;
 
     }
@@ -81,18 +80,17 @@ public class NewsFragment extends BaseFragment implements SwipeRefreshLayout.OnR
 
         gamesListAdapter = new GamesListAdapter(list);
 
+        gamesListAdapter.setOnItemClickListener(this);
+
         gamesListPresenter= new GamesListPresenter(this);
-
-
 
         srfLayout.setOnRefreshListener(this);
 
         recyclerView.setHasFixedSize(true);
         recyclerView.setLoadingData(this);
-       recyclerView.setLayoutManager(new StaggeredGridLayoutManager(1, LinearLayoutManager.VERTICAL));
+        recyclerView.setLayoutManager(new StaggeredGridLayoutManager(1, LinearLayoutManager.VERTICAL));
 
         recyclerView.setAdapter(gamesListAdapter);
-
 
         iv1.setImageResource(R.drawable.main_viewpager_pic1);
         iv2.setImageResource(R.drawable.main_viewpager_pic2);
@@ -155,8 +153,8 @@ public class NewsFragment extends BaseFragment implements SwipeRefreshLayout.OnR
         @Override
         public void netWorkError() {
             Toast(UIcollector.getString(R.string.network_error));
-
         }
+
  //刷新开关：开
     @Override
     public void showProgress() {
@@ -175,23 +173,19 @@ public class NewsFragment extends BaseFragment implements SwipeRefreshLayout.OnR
 
     @Override
         public void showFoot() {
-
         gamesListAdapter.isShowFooter(true);
-
     }
+
     @Override
         public void hideFoot() {
         gamesListAdapter.isShowFooter(false);
-
         }
-
 
     @Override
     public void onItemClick(View view, int position, GamesBean info) {
-
+        gamesListPresenter.onClick(info);
         Log.i("NewsFragment","onItemClick被调用了");
     }
-
     }
 
 

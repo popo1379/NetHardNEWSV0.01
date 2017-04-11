@@ -52,7 +52,7 @@ private GamesListPresenter gamesListPresenter;
         LinkedList<GamesBean> list = new LinkedList<>();
 
         gamesListAdapter = new GamesListAdapter(list);
-
+        gamesListAdapter.setOnItemClickListener(this);
         gamesListPresenter= new GamesListPresenter(this);
 
         srfLayout.setOnRefreshListener(this);
@@ -82,9 +82,9 @@ private GamesListPresenter gamesListPresenter;
             }
         }
 
-
     @Override
     public void onRefresh() {
+
         gamesListAdapter.removeAll();
         gamesListPresenter.requestNetWork(type,isNull);
 
@@ -133,10 +133,9 @@ private GamesListPresenter gamesListPresenter;
     @Override
     public void onItemClick(View view, int position, GamesBean info) {
 
-        Log.i("GamesFragment","onItemClick被调用了");
+       gamesListPresenter.onClick(info);
+
     }
-
-
 
 }
 

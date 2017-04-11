@@ -49,7 +49,7 @@ public class EntertainmentFragment  extends BaseFragment implements SwipeRefresh
         LinkedList<GamesBean> list = new LinkedList<>();
 
         gamesListAdapter = new GamesListAdapter(list);
-
+        gamesListAdapter.setOnItemClickListener(this);
         gamesListPresenter= new GamesListPresenter(this);
 
         srfLayout.setOnRefreshListener(this);
@@ -129,7 +129,7 @@ public class EntertainmentFragment  extends BaseFragment implements SwipeRefresh
 
     @Override
     public void onItemClick(View view, int position, GamesBean info) {
-
+        gamesListPresenter.onClick(info);
         Log.i("EntertainmentFragment","onItemClick被调用了");
     }
 
